@@ -33,7 +33,7 @@ const fetchVideos = function(searchTerm, callback) {
     maxResults : 25,
     q: `${searchTerm}`, 
   };
-  return $.getJSON(BASE_URL, query, callback);  
+  $.getJSON(BASE_URL, query, callback);  
 };
 
 //fetchVideos('james',() => console.log('testing again'));
@@ -46,8 +46,19 @@ const fetchVideos = function(searchTerm, callback) {
 // TEST IT! Grab an example API response and send it into the function - make sure
 // you get back the object you want.
 const decorateResponse = function(response) {
+    return response.items.map(function(item) {
+        console.log(item);
+        return {
+            this.item.id.videoId
+        };
+        // item.id;
+        // item.title;
 
+    });
 };
+fetchVideos('james', decorateResponse);
+// console.log(res);
+// decorateResponse(res);
 
 // TASK:
 // 1. Create a `generateVideoItemHtml` function that receives the decorated object
