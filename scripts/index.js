@@ -1,6 +1,4 @@
 'use strict';
-   
-const API_KEY = 'AIzaSyCqu7JqABYdWI2X1yhIAEwvCM5MNGtFw0g';
 
 /*
   We want our store to hold a `videos` array of "decorated" objects - i.e. objects that
