@@ -1,14 +1,14 @@
 'use strict';
 
 const store = (function(){
-    const videos = [];
+  const videos = [];
 
-    const setVideos = function(videos){
-        this.videos = videos;
-    };
+  const setVideos = function(videos){
+    this.videos = videos;
+  };
 
-    return {
-        videos,
-        setVideos,
-    };
+  return {
+    videos,
+    setVideos,
+  };
 }());
