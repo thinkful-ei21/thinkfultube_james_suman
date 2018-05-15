@@ -37,7 +37,6 @@ const fetchVideos = function(searchTerm, callback) {
   $.getJSON(BASE_URL, query, callback);  
 };
 
-//fetchVideos('james',() => console.log('testing again'));
 // TASK:
 // 1. Create a `decorateResponse` function that receives the Youtube API response
 // 2. Map through the response object's `items` array
@@ -56,19 +55,15 @@ const decorateResponse = function(response) {
   });
 };
 
-// console.log(res);
-// decorateResponse(res);
-
 // TASK:
 // 1. Create a `generateVideoItemHtml` function that receives the decorated object
 // 2. Using the object, return an HTML string containing all the expected data
 // TEST IT!
-const generateVideoItemHtml = function(video) {  
-  return `<li data-id="${video.id}>
-                <h3>${video.title}</h3>
-                <img src="${video.thumbnail}" />
-            </li>
-    `;
+const generateVideoItemHtml = function(video) {   
+  return `<li id='${video.id}'>
+              <h3>${video.title}</h3>
+              <img src='${video.thumbnail}'>
+          </li>`;
 };
 
 // TASK:
@@ -77,12 +72,10 @@ const generateVideoItemHtml = function(video) {
 // TEST IT!
 const addVideosToStore = function(videos) {
   videos.forEach(video => {
+    
     store.videos.push(video);
-  });      
+  });  
 };
-
-//addVideosToStore(mockVideos);
-
 
 // TASK:
 // 1. Create a `render` function
@@ -90,9 +83,8 @@ const addVideosToStore = function(videos) {
 // 3. Add your array of DOM elements to the appropriate DOM element
 // TEST IT!
 const render = function() {
-  const generatedHtml = store.videos.map(video => generateVideoItemHtml(video));
-  console.log(generatedHtml);
-  $('.results').html(generatedHtml);
+  const generatedHtml = store.videos.map(video => generateVideoItemHtml(video)); 
+  $('#results').html(generatedHtml);
 };
 
 
@@ -124,8 +116,7 @@ const handleFormSubmit = function() {
 $(document).ready(function () {
   // TASK:
   // 1. Run `handleFormSubmit` to bind the event listener to the DOM   
-  handleFormSubmit();
-  console.log('dom ready function');
+  handleFormSubmit();  
 });
 
 
